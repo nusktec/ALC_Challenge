@@ -78,7 +78,7 @@
             android:padding="10dp"
             android:fontFamily="@font/font1"
             style="@style/TextAppearance.AppCompat.Medium"
-            android:text="Slack Username: Nigeria"
+            android:text="Slack Username: Revelation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

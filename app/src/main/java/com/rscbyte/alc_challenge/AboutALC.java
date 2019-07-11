@@ -3,10 +3,16 @@ package com.rscbyte.alc_challenge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.net.http.SslError;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -23,20 +29,9 @@ public class AboutALC extends AppCompatActivity {
         //Load webview
         WebView webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
-        WebSettings webSettings = webView.getSettings();
-        webView.getSettings().setLoadWithOverviewMode(true);
-        webView.getSettings().setUseWideViewPort(true);
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setPluginState(WebSettings.PluginState.ON);
-        webView.setWebChromeClient(new WebChromeClient());
-        webView.setWebViewClient(new WebViewClient(){
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                Toast.makeText(AboutALC.this, "Loading...", Toast.LENGTH_SHORT).show();
-            }
-        });
-        webView.loadUrl("http://andela.com/alc/");
+        webView.setWebViewClient(new SSLTolerentWebViewClient());
+        webView.loadUrl("https://andela.com/alc/");
+        Toast.makeText(getApplicationContext(), "Loading...", Toast.LENGTH_LONG).show();
     }
 
     void init(){
@@ -53,5 +48,14 @@ public class AboutALC extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    // SSL Error Tolerant Web View Client
+    private class SSLTolerentWebViewClient extends WebViewClient {
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed(); // Ignore SSL certificate errors
+        }
+
     }
 }
