@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:fontFamily="@font/font1"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/welcome_to_alc_4_0"
+        android:textAlignment="center"
+        android:textColor="#14182C"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            style="@style/TextAppearance.AppCompat.Large"
+            android:fontFamily="@font/font1"
+            android:backgroundTint="#FF9800"
+        android:id="@+id/btnAbout"
+        android:text="ABOUT ALC"
+        android:layout_width="wrap_content"
+            android:padding="13dp"
+            android:textColor="#000"
+        android:layout_height="wrap_content" />
+
+        <Button
+            android:fontFamily="@font/font1"
+            android:padding="13dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#FF9800"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:id="@+id/btnProfile"
+            android:text="MY PROFILE"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
